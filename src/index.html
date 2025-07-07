@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -253,17 +254,19 @@
         }
 
         .hero-image {
-            margin-left: 2rem;
+            margin-left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .profile-image {
-        width: 100%;
-        max-width: 300px; /* Reduced from 400px to make the image smaller */
-        height: 300px; /* Reduced from 400px to make the image smaller */
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-xl);
-        object-fit: cover; /* Ensures the image fills the container, may crop edges */
-        /* Use object-fit: contain; if you want the full image visible with potential letterboxing */
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            object-fit: cover;
         }
 
         /* Section */
@@ -496,6 +499,7 @@
             border: 1px solid #334155;
             margin-bottom: 2rem;
             transition: var(--transition);
+            align-items: center; /* Updated: Center grid items vertically */
         }
 
         .experience-item:hover {
@@ -507,7 +511,9 @@
         .experience-left {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* Updated: Center horizontally */
+            justify-content: center; /* Updated: Center vertically */
+            height: 100%; /* Updated: Take full height */
         }
 
         .experience-date {
@@ -516,7 +522,6 @@
             color: var(--accent);
             font-weight: 500;
             margin-bottom: 1rem;
-            
         }
 
         .experience-logo {
@@ -568,8 +573,9 @@
         .projects-grid {
             display: flex;
             gap: 2rem;
-            animation: marquee 20s linear infinite;
+            animation: marquee 12s linear infinite; /* Updated: Faster animation */
             padding: 1rem 0;
+            will-change: transform; /* Updated: Optimize animation */
         }
 
         .projects-grid:hover {
@@ -762,12 +768,12 @@
                 text-align: center;
             }
 
-                    .hero-image {
-            margin-left: 0; /* Remove margin-left to center the image better */
-            display: flex;
-            justify-content: center; /* Center the image horizontally */
-            align-items: center; /* Center the image vertically */
-        }
+            .hero-image {
+                margin-left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
 
             .about-info {
                 grid-template-columns: 1fr;
@@ -778,25 +784,15 @@
             }
 
             .experience-item {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 2rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    border-radius: var(--radius-lg);
-    border: 1px solid #334155;
-    margin-bottom: 2rem;
-    transition: var(--transition);
-    align-items: center; /* Ensure the grid items are centered vertically */
-}
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
 
             .experience-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    height: 100%; /* Ensure it takes the full height of the parent container */
-}
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
 
             .experience-logo {
                 width: 80px;
@@ -804,39 +800,19 @@
             }
 
             .projects-grid {
-    display: flex;
-    gap: 2rem;
-    animation: marquee 12s linear infinite; /* Reduced duration from 20s to 12s for faster scrolling */
-    padding: 1rem 0;
-    will-change: transform; /* Optimize animation performance */
-}
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                animation: none;
+                padding-bottom: 1rem;
+                -webkit-overflow-scrolling: touch; /* Updated: Smooth scrolling on iOS */
+                scroll-behavior: smooth; /* Updated: Smooth scrolling */
+            }
 
-.projects-grid:hover {
-    animation-play-state: paused;
-}
-
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/* Ensure smooth scrolling on mobile */
-@media (max-width: 768px) {
-    .projects-grid {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        animation: none;
-        padding-bottom: 1rem;
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-        scroll-behavior: smooth; /* Smooth scrolling behavior */
-    }
-
-    .project-card {
-        scroll-snap-align: start;
-        flex: 0 0 300px;
-    }
-}
+            .project-card {
+                scroll-snap-align: start;
+                flex: 0 0 300px;
+            }
 
             .footer-content {
                 flex-direction: column;
