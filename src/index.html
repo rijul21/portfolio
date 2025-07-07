@@ -66,7 +66,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-light);
             transition: var(--transition);
@@ -137,21 +137,7 @@
             display: flex;
             align-items: center;
             padding-top: 80px;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(14, 165, 233, 0.05) 0%, transparent 50%);
-            pointer-events: none;
+            background: var(--bg-primary);
         }
 
         .hero-content {
@@ -266,7 +252,7 @@
 
         /* About Section */
         .about {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
         }
 
         .about-content {
@@ -288,17 +274,6 @@
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.7;
-        }
-
-        .about-info p strong {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .about-info p em {
-            color: var(--accent);
-            font-style: normal;
-            font-weight: 500;
         }
 
         .contact-cta {
@@ -455,19 +430,19 @@
         }
 
         .experience-logo {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             border-radius: var(--radius);
-            border: 2px solid #475569;
+            border: 1px solid #475569;
             transition: var(--transition);
-            background: linear-gradient(135deg, #475569, #64748b);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 1.2rem;
-            text-align: center;
+            overflow: hidden;
+        }
+
+        .experience-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: white;
         }
 
         .experience-item:hover .experience-logo {
@@ -496,7 +471,7 @@
 
         /* Projects Section */
         .projects {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
         }
 
         .projects-grid {
@@ -506,58 +481,63 @@
         }
 
         .project-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            background: var(--bg-primary);
             border-radius: var(--radius-lg);
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border);
             overflow: hidden;
             transition: var(--transition);
             box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.15), 0 10px 20px -5px rgba(37, 99, 235, 0.1);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
             border-color: var(--primary);
         }
 
         .project-header {
             padding: 1.5rem;
-            border-bottom: 1px solid #f1f5f9;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-primary);
         }
 
         .project-header h3 {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: white;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
 
         .tech-tag {
             padding: 0.25rem 0.75rem;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
             border-radius: var(--radius);
             font-size: 0.75rem;
             font-weight: 500;
-            backdrop-filter: blur(10px);
         }
 
         .project-body {
             padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-body p {
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.6;
+            flex-grow: 1;
         }
 
         .project-links {
@@ -677,7 +657,6 @@
             .experience-logo {
                 width: 80px;
                 height: 80px;
-                font-size: 0.9rem;
             }
 
             .projects-grid {
@@ -776,18 +755,12 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">
-                    Professional overthinker with a dangerous tendency to automate things that probably didn't need automating.
-                </p>
             </div>
             <div class="about-content">
                 <div class="about-info">
                     <h3>Background</h3>
                     <p>
-                        Currently pursuing my <strong>MS at the University of Florida</strong> while drawing from three years of software engineering experience at <strong>Adobe</strong> and <strong>Optum</strong>.
-                    </p>
-                    <p>
-                        Beyond work, I'm fascinated by <em>theoretical AI concepts</em>, emerging protocols like <strong>MCP</strong>, and how new frameworks reshape development practices every month—staying ahead of the curve is part of the craft.
+                        I am currently pursuing my Master of Science in Computer Science at the University of Florida. With three years of software engineering experience at Adobe and Optum, I have developed expertise in building scalable systems and optimizing performance. Beyond work, I am fascinated by theoretical AI concepts, emerging protocols like MCP, and how new frameworks reshape development practices.
                     </p>
                     <div class="contact-cta">
                         <a href="mailto:rijul300@gmail.com" class="btn btn-primary">
@@ -850,7 +823,7 @@
                         Apr 2023 – Jul 2024
                     </div>
                     <div class="experience-logo">
-                        <img src="assets/adobe-logo.png" alt="Adobe" class="profile-image">
+                        <img src="assets/adobe-logo.png" alt="Adobe Logo">
                     </div>
                 </div>
                 <div class="experience-content">
@@ -870,7 +843,7 @@
                         Jun 2021 – Apr 2023
                     </div>
                     <div class="experience-logo">
-                        <img src="assets/optum-logo.png" alt="Optum" class="profile-image">
+                        <img src="assets/optum-logo.png" alt="Optum Logo">
                     </div>
                 </div>
                 <div class="experience-content">
@@ -885,8 +858,6 @@
             </div>
         </div>
     </section>
-
-  
 
     <!-- Projects Section -->
     <section id="projects" class="section projects">
@@ -919,10 +890,6 @@
                                 <i class="fab fa-github"></i>
                                 Source Code
                             </a>
-                            <a href="https://github.com/rijul21/worMS-Agent" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                Live Demo
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -946,10 +913,6 @@
                             <a href="https://github.com/rijul21/ChatBot-RAG" target="_blank" class="project-link">
                                 <i class="fab fa-github"></i>
                                 Source Code
-                            </a>
-                            <a href="https://github.com/rijul21/ChatBot-RAG" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                Live Demo
                             </a>
                         </div>
                     </div>
@@ -976,10 +939,6 @@
                                 <i class="fab fa-github"></i>
                                 Source Code
                             </a>
-                            <a href="https://github.com/E53klasky/CampusCupid" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                Live Demo
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -987,9 +946,8 @@
         </div>
     </section>
 
-
-      <!-- Education Section -->
-      <section id="education" class="section education">
+    <!-- Education Section -->
+    <section id="education" class="section education">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Education</h2>
