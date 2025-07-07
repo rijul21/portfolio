@@ -227,37 +227,16 @@
         }
 
         .hero-image {
-            position: relative;
-            display: flex;
-            justify-content: center;
+            margin-left: 2rem;
         }
 
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: var(--radius-lg);
-            opacity: 0.1;
-            z-index: -1;
-        }
-
-        .hero-image .profile-placeholder {
+        .profile-image {
             width: 100%;
             max-width: 400px;
             height: 400px;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-xl);
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 6rem;
-            font-weight: 300;
+            object-fit: cover;
         }
 
         /* Section */
@@ -359,6 +338,74 @@
             font-size: 0.875rem;
             font-weight: 500;
             color: var(--text-secondary);
+        }
+
+        /* Education Section */
+        .education {
+            background: #0f172a;
+        }
+
+        .education .section-title {
+            color: white;
+        }
+
+        .education .section-subtitle {
+            color: #94a3b8;
+        }
+
+        .education-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid #334155;
+            transition: var(--transition);
+        }
+
+        .education-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .education-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item p {
+            font-size: 0.875rem;
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            list-style: none;
+            color: #cbd5e1;
+            font-size: 0.875rem;
+        }
+
+        .education-item ul li {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius);
         }
 
         /* Experience Section */
@@ -566,7 +613,7 @@
         .footer-content {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items醒: center;
             margin-bottom: 2rem;
         }
 
@@ -603,7 +650,15 @@
                 text-align: center;
             }
 
+            .hero-image {
+                margin-left: 0;
+            }
+
             .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .education-content {
                 grid-template-columns: 1fr;
             }
 
@@ -674,6 +729,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -697,6 +753,10 @@
                             <i class="fas fa-code"></i>
                             View My Work
                         </a>
+                        <a href="/assets/Resume" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-file-alt"></i>
+                            Resume
+                        </a>
                         <a href="#contact" class="btn btn-outline">
                             <i class="fas fa-envelope"></i>
                             Get In Touch
@@ -704,9 +764,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="profile-placeholder">
-                        <i class="fas fa-user"></i>
-                    </div>
+                    <img src="assets/profile.jpg" alt="Rijul's profile photo" class="profile-image">
                 </div>
             </div>
         </div>
@@ -791,7 +849,7 @@
                         Apr 2023 – Jul 2024
                     </div>
                     <div class="experience-logo">
-                        ADOBE
+                        <img src="assets/adobe-logo.png" alt="Adobe" class="profile-image">
                     </div>
                 </div>
                 <div class="experience-content">
@@ -811,7 +869,7 @@
                         Jun 2021 – Apr 2023
                     </div>
                     <div class="experience-logo">
-                        OPTUM
+                        <img src="assets/optum-logo.png" alt="Optum" class="profile-image">
                     </div>
                 </div>
                 <div class="experience-content">
@@ -826,6 +884,8 @@
             </div>
         </div>
     </section>
+
+  
 
     <!-- Projects Section -->
     <section id="projects" class="section projects">
@@ -902,8 +962,7 @@
                             <span class="tech-tag">React.js</span>
                             <span class="tech-tag">PostgreSQL</span>
                             <span class="tech-tag">REST API</span>
-                        </div
-
+                        </div>
                     </div>
                     <div class="project-body">
                         <p>
@@ -922,62 +981,94 @@
                             </a>
                         </div>
                     </div>
-              </div>
-              </div>
-              </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-               <!-- Contact Section -->
-               <section id="contact" class="section contact">
-                <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">Let's Work Together</h2>
-                    </div>
-                    <div class="contact-content">
-                        <p class="contact-text">
-                            I'm always interested in discussing new opportunities, innovative projects, 
-                            or potential collaborations. Whether you're looking to build something 
-                            amazing or just want to connect, I'd love to hear from you.
-                        </p>
-                        <a href="mailto:rijul300@gmail.com" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i>
-                            Start a Conversation
-                        </a>
-                    </div>
-                </div>
-            </section>
-          
-            <!-- Footer -->
-            <footer class="footer">
-                <div class="container">
-                    <div class="footer-content">
-                        <div class="footer-links">
-                            <a href="https://github.com/rijul21" target="_blank" class="footer-link">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/rijul-bir-singh" target="_blank" class="footer-link">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="mailto:rijul300@gmail.com" class="footer-link">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="https://twitter.com/" target="_blank" class="footer-link">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </div>
-                        <a href="#home" class="footer-link">
-                            <i class="fas fa-arrow-up"></i>
-                        </a>
-                    </div>
-                    <p class="footer-text">
-                        © 2025 Rijul Bir Singh. Designed and built with attention to detail.
-                    </p>
-                </div>
-                </footer>
-                </body>
-                </html>
-          
 
-            
-                    
-  
+      <!-- Education Section -->
+      <section id="education" class="section education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">
+                    Academic journey in computer science and software engineering
+                </p>
+            </div>
+            <div class="education-content">
+                <div class="education-item">
+                    <h3>University of Florida</h3>
+                    <h4>Master of Science in Computer Science</h4>
+                    <p>Gainesville, USA | Aug 2024 – May 2026 | GPA: 3.61/4.0</p>
+                    <ul>
+                        <li>Generative AI</li>
+                        <li>Data Science</li>
+                        <li>Distributed Operating Systems</li>
+                        <li>Design Analysis & Algorithms</li>
+                    </ul>
+                </div>
+                <div class="education-item">
+                    <h3>Delhi Technological University</h3>
+                    <h4>Bachelor of Engineering in Software Engineering</h4>
+                    <p>Delhi, India | Aug 2017 – May 2021 | GPA: 3.5/4.0</p>
+                    <ul>
+                        <li>Machine Learning</li>
+                        <li>Database Management Systems</li>
+                        <li>Computer Networks</li>
+                        <li>Software Engineering</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Work Together</h2>
+            </div>
+            <div class="contact-content">
+                <p class="contact-text">
+                    I'm always interested in discussing new opportunities, innovative projects, 
+                    or potential collaborations. Whether you're looking to build something 
+                    amazing or just want to connect, I'd love to hear from you.
+                </p>
+                <a href="mailto:rijul300@gmail.com" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i>
+                    Start a Conversation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/rijul21" target="_blank" class="footer-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rijul-bir-singh" target="_blank" class="footer-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:rijul300@gmail.com" class="footer-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" class="footer-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                <a href="#home" class="footer-link">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+            <p class="footer-text">
+                © 2025 Rijul Bir Singh. Designed and built with attention to detail.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
