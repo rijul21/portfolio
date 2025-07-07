@@ -762,6 +762,10 @@
 
             .hero-image {
                 margin-left: 0;
+                width: 100%; /* Ensures the image takes the full width of the card */
+                height: 100%; /* Ensures the image takes the full height of the card */
+                object-fit: cover; /* Scales the image to cover the container while maintaining aspect ratio, may crop edges */
+                /* Alternatively, use object-fit: contain; to show the entire image without cropping, with possible letterboxing */
             }
 
             .about-info {
@@ -900,19 +904,19 @@
             <div class="section-header">
                 <h2 class="section-title">About Me</h2>
                 <p class="section-subtitle">
-                    A passionate engineer with a focus on impactful solutions
+                    <i>A passionate engineer</i>
                 </p>
             </div>
             <div class="about-content">
                 <div class="about-info">
                     <p>
-                        My experience in data engineering and technical consulting has been shaped by working on projects that genuinely matter to users and businesses. At Adobe, I worked on Adobe Experience Manager's Multi-Site Manager, helping organizations manage their content across different regions and languages—something that sounds straightforward until you're dealing with the complexities of global content orchestration.
+                        My experience in data engineering and technical consulting has been shaped by working on projects that genuinely matter to users and businesses. At Adobe, I worked on Adobe Experience Manager's Multi-Site Manager, helping organizations manage their content across different regions and languages. This sounds straightforward until you're dealing with the complexities of global content orchestration. The technical challenges were real, but seeing how it impacted actual business operations made the work meaningful.
                     </p>
                     <p>
-                        At UHG I focused on their financial reporting platform, where precision isn't just important, it's everything. What struck me most about the roles wasn't just the technical aspect, but the caliber of people I worked alongside. Being surrounded by such talented professionals taught me as much about accountability and attention to detail as it did about the actual craft of building software.
+                        At UHG, I focused on their financial reporting platform where precision isn't just important—it's everything. As my first professional experience, what struck me most wasn't just the technical work; It was the caliber of people I worked alongside. Being surrounded by such talented professionals taught me as much about accountability and attention to detail as it did about building software. The experience shaped my understanding of what it means to work on systems where accuracy truly matters.
                     </p>
                     <p>
-                        You learn quickly that great engineering isn't just about writing code—it's about understanding the bigger picture, whether that's helping a marketing team launch campaigns across twelve countries or ensuring financial data flows seamlessly through systems that executives rely on for major decisions. This blend of technical depth and business impact has fundamentally shaped how I approach software engineering challenges today.
+                        You learn quickly that great engineering isn't just about writing code; It's about understanding the bigger picture. Whether that's helping a marketing team launch campaigns across twelve countries or ensuring financial data flows seamlessly through executives, the impact goes beyond technical work. This blend of technical depth and business understanding has fundamentally shaped how I approach software engineering challenges today.
                     </p>
                 </div>
                 <div class="tech-stack">
@@ -1010,7 +1014,7 @@
                     <h3>Adobe</h3>
                     <h4>Technical Consultant</h4>
                     <p>
-                        Working with the AEM Engineering team, I regularly connected with customers around the world to understand their needs and help guide where the product should go next. My day-to-day involved talking with customers about what features they wanted and turning those conversations into clear direction for our development team. I helped build and improve FluffyJaws, our internal chatbot for AEM that uses advanced search technology, which we rolled out to customers globally to make their support experience better. I also got involved in moving customers from their own servers to Adobe's cloud platform, especially across Europe and the Middle East, which taught me a lot about handling large-scale transitions.
+                        Working with the AEM Engineering team, I regularly connected with customers around the world to understand their needs and help guide where the product should go next. My day-to-day involved talking with customers about what features they wanted and turning those conversations into clear direction for our development team. <br> I helped build and improve FluffyJaws, our internal chatbot for AEM that uses RAG, which we rolled out to customers globally to make their support experience better. I also got involved in moving customers from their own servers to Adobe's cloud platform, especially across Europe and the Middle East, which taught me a lot about handling large-scale transitions.
                     </p>
                 </div>
             </div>
@@ -1028,7 +1032,7 @@
                     <h3>Optum (UnitedHealth Group)</h3>
                     <h4>Software Development Engineer</h4>
                     <p>
-                        I was part of ORBIT, a data analytics team that built dashboards and reports for executives using massive amounts of healthcare data. My job was to take complex healthcare information and turn it into clear, visual reports that leadership could actually use to make decisions. I worked with tools like Power BI and Tableau to create these executive dashboards, and also got hands-on experience with Kubernetes to keep our systems running smoothly. The role taught me how to bridge the gap between technical data work and what business leaders actually need - turning numbers into stories that help drive real healthcare decisions.
+                        I was part of ORBIT, a data analytics team that built dashboards and reports for executives using massive amounts of healthcare data. My job was to take complex healthcare information and turn it into clear, visual reports that leadership could actually use to make decisions. <br> I worked with tools like Power BI and Tableau to create these executive dashboards, and also got hands-on experience with Kubernetes to keep our systems running smoothly. The role taught me how to bridge the gap between technical data work and what business leaders actually need - turning numbers into stories that help drive real healthcare decisions.
                     </p>
                 </div>
             </div>
