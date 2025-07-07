@@ -7,7 +7,7 @@
     
     <title>Rijul Bir Singh | Software Engineer & CS Grad Student</title>
     <meta name="keywords" content="rijul, rijul bir singh, software engineer, computer science, ai, llm, full stack developer" />
-    <meta name="description" content="Rijul Bir Singh  | Software Engineer & CS Grad Student at UF, passionate about AI and full-stack development" />
+    <meta name="description" content="Rijul Bir Singh | Software Engineer & CS Grad Student at UF, passionate about AI and full-stack development" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -47,6 +47,7 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            scroll-padding-top: 80px;
         }
 
         body {
@@ -214,7 +215,6 @@
 
         .hero-image {
             margin-left: 2rem;
-            rotate: 90deg;
         }
 
         .profile-image {
@@ -241,6 +241,17 @@
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--text-primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 0.5rem auto;
+            border-radius: var(--radius);
         }
 
         .section-subtitle {
@@ -256,42 +267,37 @@
         }
 
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: start;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
-        .about-info h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
+        .about-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
         }
 
         .about-info p {
             font-size: 1.125rem;
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
             line-height: 1.7;
-        }
-
-        .contact-cta {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
+            flex: 1;
+            min-width: 300px;
         }
 
         .tech-stack {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 1rem;
+            margin-top: 2rem;
         }
 
         .tech-item {
             text-align: center;
             padding: 1rem;
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
             border-radius: var(--radius);
             border: 1px solid var(--border);
             transition: var(--transition);
@@ -301,6 +307,7 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
             border-color: var(--primary);
+            background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
         }
 
         .tech-item i {
@@ -314,6 +321,11 @@
             font-size: 0.875rem;
             font-weight: 500;
             color: var(--text-secondary);
+        }
+
+        .contact-cta {
+            text-align: center;
+            margin-top: 2rem;
         }
 
         /* Education Section */
@@ -489,6 +501,7 @@
             box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .project-card:hover {
@@ -500,7 +513,25 @@
         .project-header {
             padding: 1.5rem;
             border-bottom: 1px solid var(--border-light);
-            background: var(--bg-primary);
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0.3;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-header::before {
+            opacity: 1;
         }
 
         .project-header h3 {
@@ -519,11 +550,17 @@
 
         .tech-tag {
             padding: 0.25rem 0.75rem;
-            background: var(--bg-secondary);
+            background: var(--bg-tertiary);
             color: var(--text-secondary);
             border-radius: var(--radius);
             font-size: 0.75rem;
             font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            background: var(--primary);
+            color: white;
         }
 
         .project-body {
@@ -635,8 +672,8 @@
                 margin-left: 0;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
+            .about-info {
+                flex-direction: column;
             }
 
             .education-content {
@@ -692,17 +729,12 @@
         .fade-in {
             animation: fadeInUp 0.6s ease-out forwards;
         }
-
-        /* Smooth scrolling offset for fixed nav */
-        html {
-            scroll-padding-top: 80px;
-        }
     </style>
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" role="navigation">
         <div class="nav-container">
             <a href="#home" class="nav-logo">rijul.dev</a>
             <ul class="nav-links">
@@ -754,21 +786,21 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    A passionate engineer with a focus on impactful solutions
+                </p>
             </div>
             <div class="about-content">
                 <div class="about-info">
-                    
                     <p>
-                        My experience in data engineering and technical consulting at Adobe and Optum has been shaped by working on projects that genuinely matter to users and businesses. At Adobe, I worked on Adobe Experience Manager's Multi-Site Manager, helping organizations manage their content across different regions and languages—something that sounds straightforward until you're dealing with the complexities of global content orchestration. At Optum, I focused on their financial reporting platform, where precision isn't just important, it's everything.
-What struck me most about these roles wasn't just the technical challenges, but the caliber of people I worked alongside. Being surrounded by such talented professionals taught me as much about accountability and attention to detail as it did about the actual craft of building software. You learn quickly that great engineering isn't just about writing code—it's about understanding the bigger picture, whether that's helping a marketing team launch campaigns across twelve countries or ensuring financial data flows seamlessly through systems that executives rely on for major decisions.
-This blend of technical depth and business impact has fundamentally shaped how I approach software engineering challenges today.
+                        My experience in data engineering and technical consulting at Adobe and Optum has been shaped by working on projects that genuinely matter to users and businesses. At Adobe, I worked on Adobe Experience Manager's Multi-Site Manager, helping organizations manage their content across different regions and languages—something that sounds straightforward until you're dealing with the complexities of global content orchestration.
                     </p>
-                    <div class="contact-cta">
-                        <a href="mailto:rijul300@gmail.com" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i>
-                            Get In Touch
-                        </a>
-                    </div>
+                    <p>
+                        At Optum, I focused on their financial reporting platform, where precision isn't just important, it's everything. What struck me most about these roles wasn't just the technical challenges, but the caliber of people I worked alongside. Being surrounded by such talented professionals taught me as much about accountability and attention to detail as it did about the actual craft of building software.
+                    </p>
+                    <p>
+                        You learn quickly that great engineering isn't just about writing code—it's about understanding the bigger picture, whether that's helping a marketing team launch campaigns across twelve countries or ensuring financial data flows seamlessly through systems that executives rely on for major decisions. This blend of technical depth and business impact has fundamentally shaped how I approach software engineering challenges today.
+                    </p>
                 </div>
                 <div class="tech-stack">
                     <div class="tech-item">
@@ -804,6 +836,12 @@ This blend of technical depth and business impact has fundamentally shaped how I
                         <span>LLMs/AI</span>
                     </div>
                 </div>
+                <div class="contact-cta">
+                    <a href="mailto:rijul300@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Get In Touch
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -824,7 +862,7 @@ This blend of technical depth and business impact has fundamentally shaped how I
                         Apr 2023 – Jul 2024
                     </div>
                     <div class="experience-logo">
-                        <img src="assets/adobe-logo.png" alt="Adobe Logo">
+                        <img src="assets/adobe-logo.png" alt="Adobe company logo">
                     </div>
                 </div>
                 <div class="experience-content">
@@ -844,15 +882,15 @@ This blend of technical depth and business impact has fundamentally shaped how I
                         Jun 2021 – Apr 2023
                     </div>
                     <div class="experience-logo">
-                        <img src="assets/optum-logo.png" alt="Optum Logo">
+                        <div class="experience-logo">
+                        <img src="assets/opt modulation-logo.png" alt="Optum company logo">
                     </div>
                 </div>
                 <div class="experience-content">
                     <h3>Optum (UnitedHealth Group)</h3>
                     <h4>Software Development Engineer</h4>
                     <p>
-                        Built scalable ETL pipelines using Apache Airflow for healthcare data processing. 
-                        Automated reporting dashboards with Power BI, reducing manual effort by 70%. 
+                        Built scalable ETL pipelines using ApacheReport with Power BI, reducing manual effort by 70%. 
                         Developed data engineering solutions handling millions of healthcare records with 99.9% accuracy.
                     </p>
                 </div>
@@ -864,7 +902,7 @@ This blend of technical depth and business impact has fundamentally shaped how I
     <section id="projects" class="section projects">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title">Featured Projects</2>
                 <p class="section-subtitle">
                     AI-powered applications and full-stack solutions
                 </p>
@@ -1021,7 +1059,7 @@ This blend of technical depth and business impact has fundamentally shaped how I
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
-                <a href="#home" class="footer-link">
+                <a href="#home" class="footer-link" aria-label="Back to top">
                     <i class="fas fa-arrow-up"></i>
                 </a>
             </div>
