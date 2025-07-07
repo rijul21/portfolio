@@ -125,6 +125,45 @@
             width: 100%;
         }
 
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-menu .nav-link {
+            display: block;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+
         /* Container */
         .container {
             max-width: var(--max-width);
@@ -172,7 +211,7 @@
 
         .hero-cta {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
@@ -269,58 +308,95 @@
         .about-content {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 3rem;
         }
 
         .about-info {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            justify-content: space-between;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0.5;
         }
 
         .about-info p {
             font-size: 1.125rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            flex: 1;
-            min-width: 300px;
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-family: 'Crimson Text', serif;
+            position: relative;
+            padding-left: 1.5rem;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .about-info p::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
         }
 
         .tech-stack {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
+            gap: 1.5rem;
             margin-top: 2rem;
+            padding: 1rem;
+            background: var(--bg-primary);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
         }
 
         .tech-item {
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
             background: var(--bg-secondary);
             border-radius: var(--radius);
             border: 1px solid var(--border);
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
         .tech-item:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
             border-color: var(--primary);
             background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
         }
 
         .tech-item i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .tech-item:hover i {
+            transform: scale(1.1);
         }
 
         .tech-item span {
             display: block;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
         .contact-cta {
@@ -484,15 +560,27 @@
         /* Projects Section */
         .projects {
             background: var(--bg-primary);
+            overflow: hidden;
         }
 
         .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            display: flex;
             gap: 2rem;
+            animation: marquee 20s linear infinite;
+            padding: 1rem 0;
+        }
+
+        .projects-grid:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .project-card {
+            flex: 0 0 350px;
             background: var(--bg-primary);
             border-radius: var(--radius-lg);
             border: 1px solid var(--border);
@@ -505,7 +593,7 @@
         }
 
         .project-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-4px) scale(1.02);
             box-shadow: var(--shadow-lg);
             border-color: var(--primary);
         }
@@ -663,6 +751,10 @@
                 display: none;
             }
 
+            .mobile-menu-toggle {
+                display: block;
+            }
+
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -673,7 +765,7 @@
             }
 
             .about-info {
-                flex-direction: column;
+                grid-template-columns: 1fr;
             }
 
             .education-content {
@@ -697,7 +789,16 @@
             }
 
             .projects-grid {
-                grid-template-columns: 1fr;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                animation: none;
+                padding-bottom: 1rem;
+            }
+
+            .project-card {
+                scroll-snap-align: start;
+                flex: 0 0 300px;
             }
 
             .footer-content {
@@ -737,7 +838,19 @@
     <nav class="nav" role="navigation">
         <div class="nav-container">
             <a href="#home" class="nav-logo">rijul.dev</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="mobile-menu">
+            <ul>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
@@ -882,7 +995,6 @@
                         Jun 2021 – Apr 2023
                     </div>
                     <div class="experience-logo">
-                        <div class="experience-logo">
                         <img src="assets/optum-logo.png" alt="Optum company logo">
                     </div>
                 </div>
@@ -902,7 +1014,7 @@
     <section id="projects" class="section projects">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Featured Projects</2>
+                <h2 class="section-title">Featured Projects</h2>
                 <p class="section-subtitle">
                     AI-powered applications and full-stack solutions
                 </p>
@@ -975,6 +1087,31 @@
                         </p>
                         <div class="project-links">
                             <a href="https://github.com/E53klasky/CampusCupid" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                                Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>MCP-WebAutomation-Agent</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Selenium</span>
+                            <span class="tech-tag">BeautifulSoup</span>
+                            <span class="tech-tag">LangChain</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>
+                            AI-driven web automation agent for dynamic content scraping and task automation. 
+                            Leverages Selenium and BeautifulSoup with LangChain for intelligent navigation 
+                            and data extraction from complex websites.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/rijul21/MCP--WebAutomation-Agent" target="_blank" class="project-link">
                                 <i class="fab fa-github"></i>
                                 Source Code
                             </a>
@@ -1068,5 +1205,25 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const isOpen = mobileMenu.classList.contains('active');
+            mobileMenuToggle.innerHTML = `<i class="fas ${isOpen ? 'fa-times' : 'fa-bars'}"></i>`;
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuToggle.innerHTML = `<i class="fas fa-bars"></i>`;
+            });
+        });
+    </script>
 </body>
 </html>
