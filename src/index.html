@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <title>Rijul Bir Singh | Software Engineer & CS Grad Student</title>
+    <meta name="keywords" content="rijul, rijul bir singh, software engineer, computer science, ai, llm, full stack developer" />
+    <meta name="description" content="Rijul Bir Singh  | Software Engineer & CS Grad Student at UF, passionate about AI and full-stack development" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --accent: #0ea5e9;
+            --success: #059669;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --border: #e2e8f0;
+            --border-light: #f1f5f9;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --radius: 8px;
+            --radius-lg: 12px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+            --max-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-display);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(14, 165, 233, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .hero-text .highlight {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: var(--bg-secondary);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-image {
+            margin-left: 2rem;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            object-fit: cover;
+        }
+
+        /* Section */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .about-info p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .about-info p strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .about-info p em {
+            color: var(--accent);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .contact-cta {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg-primary);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .tech-item i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-item span {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* Education Section */
+        .education {
+            background: #0f172a;
+        }
+
+        .education .section-title {
+            color: white;
+        }
+
+        .education .section-subtitle {
+            color: #94a3b8;
+        }
+
+        .education-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid #334155;
+            transition: var(--transition);
+        }
+
+        .education-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .education-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item p {
+            font-size: 0.875rem;
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            list-style: none;
+            color: #cbd5e1;
+            font-size: 0.875rem;
+        }
+
+        .education-item ul li {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius);
+        }
+
+        /* Experience Section */
+        .experience {
+            background: #0f172a;
+        }
+
+        .experience .section-title {
+            color: white;
+        }
+
+        .experience .section-subtitle {
+            color: #94a3b8;
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid #334155;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .experience-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary);
+        }
+
+        .experience-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .experience-date {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .experience-logo {
+            width: 150px;
+            height: 150px;
+            border-radius: var(--radius);
+            border: 2px solid #475569;
+            transition: var(--transition);
+            background: linear-gradient(135deg, #475569, #64748b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .experience-item:hover .experience-logo {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .experience-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .experience-content h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+
+        .experience-content p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--bg-secondary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.15), 0 10px 20px -5px rgba(37, 99, 235, 0.1);
+            border-color: var(--primary);
+        }
+
+        .project-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        .project-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: var(--radius);
+            font-size: 0.75rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .project-link:hover {
+            color: white;
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-text {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.25rem;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image {
+                margin-left: 0;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .education-content {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .experience-left {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .experience-logo {
+                width: 80px;
+                height: 80px;
+                font-size: 0.9rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Smooth scrolling offset for fixed nav */
+        html {
+            scroll-padding-top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">rijul.dev</a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>
+                        Hi, I'm <span class="highlight">Rijul</span><br>
+                        Software Engineer & CS Graduate Student
+                    </h1>
+                    <p class="hero-subtitle">
+                        Building intelligent systems at the intersection of AI, data, and clean code. 
+                        Currently pursuing MS in Computer Science at University of Florida.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-code"></i>
+                            View My Work
+                        </a>
+                        <a href="/assets/Resume" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-file-alt"></i>
+                            Resume
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/profile.jpg" alt="Rijul's profile photo" class="profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    Professional overthinker with a dangerous tendency to automate things that probably didn't need automating.
+                </p>
+            </div>
+            <div class="about-content">
+                <div class="about-info">
+                    <h3>Background</h3>
+                    <p>
+                        Currently pursuing my <strong>MS at the University of Florida</strong> while drawing from three years of software engineering experience at <strong>Adobe</strong> and <strong>Optum</strong>.
+                    </p>
+                    <p>
+                        Beyond work, I'm fascinated by <em>theoretical AI concepts</em>, emerging protocols like <strong>MCP</strong>, and how new frameworks reshape development practices every month—staying ahead of the curve is part of the craft.
+                    </p>
+                    <div class="contact-cta">
+                        <a href="mailto:rijul300@gmail.com" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-js-square"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-node-js"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-aws"></i>
+                        <span>AWS</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-database"></i>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-docker"></i>
+                        <span>Docker</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-robot"></i>
+                        <span>LLMs/AI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">
+                    Building enterprise solutions and driving technical innovation
+                </p>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-left">
+                    <div class="experience-date">
+                        Apr 2023 – Jul 2024
+                    </div>
+                    <div class="experience-logo">
+                        <img src="assets/adobe-logo.png" alt="Adobe" class="profile-image">
+                    </div>
+                </div>
+                <div class="experience-content">
+                    <h3>Adobe</h3>
+                    <h4>Technical Consultant</h4>
+                    <p>
+                        Engineered backend solutions for Adobe Experience Manager (AEM), focusing on system stability 
+                        and performance optimization. Developed features using JCR and OSGi frameworks, performed 
+                        complex debugging of heap/thread dumps, and delivered enterprise-grade solutions for Fortune 500 clients.
+                    </p>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-left">
+                    <div class="experience-date">
+                        Jun 2021 – Apr 2023
+                    </div>
+                    <div class="experience-logo">
+                        <img src="assets/optum-logo.png" alt="Optum" class="profile-image">
+                    </div>
+                </div>
+                <div class="experience-content">
+                    <h3>Optum (UnitedHealth Group)</h3>
+                    <h4>Software Development Engineer</h4>
+                    <p>
+                        Built scalable ETL pipelines using Apache Airflow for healthcare data processing. 
+                        Automated reporting dashboards with Power BI, reducing manual effort by 70%. 
+                        Developed data engineering solutions handling millions of healthcare records with 99.9% accuracy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    AI-powered applications and full-stack solutions
+                </p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>WoRMS Marine Species Agent</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OpenAI</span>
+                            <span class="tech-tag">LangChain</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>
+                            LLM-powered conversational agent for querying 240K+ marine species data. 
+                            Integrated 6 APIs with structured response delivery in under 2 seconds using 
+                            iChatBio SDK and Pydantic validation.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/rijul21/worMS-Agent" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                                Source Code
+                            </a>
+                            <a href="https://github.com/rijul21/worMS-Agent" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>ChatBot-RAG</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">FAISS</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>
+                            Retrieval-Augmented Generation chatbot with semantic search capabilities. 
+                            Processes custom documents and provides grounded responses through an 
+                            intuitive Streamlit interface with real-time query processing.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/rijul21/ChatBot-RAG" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                                Source Code
+                            </a>
+                            <a href="https://github.com/rijul21/ChatBot-RAG" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>CampusCupid</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Go</span>
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">REST API</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>
+                            Full-stack dating application with Go-powered backend and React frontend. 
+                            Implemented real-time matching algorithms, secure authentication, and 
+                            responsive user interactions for campus-wide social networking.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/E53klasky/CampusCupid" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                                Source Code
+                            </a>
+                            <a href="https://github.com/E53klasky/CampusCupid" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+      <!-- Education Section -->
+      <section id="education" class="section education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">
+                    Academic journey in computer science and software engineering
+                </p>
+            </div>
+            <div class="education-content">
+                <div class="education-item">
+                    <h3>University of Florida</h3>
+                    <h4>Master of Science in Computer Science</h4>
+                    <p>Gainesville, USA | Aug 2024 – May 2026 | GPA: 3.61/4.0</p>
+                    <ul>
+                        <li>Generative AI</li>
+                        <li>Data Science</li>
+                        <li>Distributed Operating Systems</li>
+                        <li>Design Analysis & Algorithms</li>
+                    </ul>
+                </div>
+                <div class="education-item">
+                    <h3>Delhi Technological University</h3>
+                    <h4>Bachelor of Engineering in Software Engineering</h4>
+                    <p>Delhi, India | Aug 2017 – May 2021 | GPA: 3.5/4.0</p>
+                    <ul>
+                        <li>Machine Learning</li>
+                        <li>Database Management Systems</li>
+                        <li>Computer Networks</li>
+                        <li>Software Engineering</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Work Together</h2>
+            </div>
+            <div class="contact-content">
+                <p class="contact-text">
+                    I'm always interested in discussing new opportunities, innovative projects, 
+                    or potential collaborations. Whether you're looking to build something 
+                    amazing or just want to connect, I'd love to hear from you.
+                </p>
+                <a href="mailto:rijul300@gmail.com" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i>
+                    Start a Conversation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/rijul21" target="_blank" class="footer-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rijul-bir-singh" target="_blank" class="footer-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:rijul300@gmail.com" class="footer-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" class="footer-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                <a href="#home" class="footer-link">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+            <p class="footer-text">
+                © 2025 Rijul Bir Singh. Designed and built with attention to detail.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
